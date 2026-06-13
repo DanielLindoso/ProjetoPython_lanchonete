@@ -83,7 +83,7 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n)")
+                continuar = input("Deseja pedir algo mais? (s/n): ")
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -98,7 +98,7 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n)")
+                continuar = input("Deseja pedir algo mais? (s/n): ")
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -113,7 +113,7 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n)")
+                continuar = input("Deseja pedir algo mais? (s/n): ")
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -128,7 +128,7 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n)")
+                continuar = input("Deseja pedir algo mais? (s/n): ")
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -192,35 +192,49 @@ while True:
 
 
     elif opcao == 5:
-        print("\n")
-        print("\n")
-        print("------------Valor Total do pedido------------")  
-        for i, item in enumerate(pedidos):
-                preco_item = preco[i]
-                print(f"{i + 1} -> {item} ---> R${preco_item}0")     
-        sum(preco)
-        print(f"O valor total do pedido é R${sum(preco)}0") 
-        print("\n")
-        print("_____FORMAS DE PAGAMENTO_____")
-        print("[1] -- Pix")
-        print("[2] -- Cartão(Débito)")
-        print("[3] -- Cartão(Crédito à vista)")
-        print("[4] -- Dinheiro")
-        pagamento = int(input("Escolha a opção [] de pagamento: "))
-        print("**********PAGAMENTO REALIZADO COM SUCESSO**********")
-    
-
-
-        print("APROVEITE O LANCHE")
-        novo_pedido = input("Deseja fazer outro pedido? (s/n): ")
-        if novo_pedido == "s":
+        if pedidos != 0:
             print("\n")
             print("\n")
-            continue
+            print("Você ainda não fez nenhum pedido!!!")
+            novo_pedido = input("Deseja fazer um pedido? (s/n): ")
+            if novo_pedido == "s":
+                print("\n")
+                print("\n")
+                continue
+            else:
+                print("\n")
+                print("\n")
+                break
         else:
             print("\n")
             print("\n")
-            break
+            print("------------Valor Total do pedido------------")  
+            for i, item in enumerate(pedidos):
+                preco_item = preco[i]
+                print(f"{i + 1} -> {item} ---> R${preco_item}0")     
+            sum(preco)
+            print(f"O valor total do pedido é R${sum(preco)}0") 
+            print("\n")
+            print("_____FORMAS DE PAGAMENTO_____")
+            print("[1] -- Pix")
+            print("[2] -- Cartão(Débito)")
+            print("[3] -- Cartão(Crédito à vista)")
+            print("[4] -- Dinheiro")
+            pagamento = int(input("Escolha a opção [] de pagamento: "))
+            print("**********PAGAMENTO REALIZADO COM SUCESSO**********")
+    
+
+
+            print("APROVEITE O LANCHE")
+            novo_pedido = input("Deseja fazer outro pedido? (s/n): ")
+            if novo_pedido == "s":
+                print("\n")
+                print("\n")
+                continue
+            else:
+                print("\n")
+                print("\n")
+                break
 
 
         
