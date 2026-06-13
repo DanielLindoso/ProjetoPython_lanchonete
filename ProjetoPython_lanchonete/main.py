@@ -168,12 +168,63 @@ while True:
             voltar = input("Aperte enter para voltar ao menu: ")
 
 
-
+#---------------------------OPÇÃO REMOVER ITEM [4]----------------------------------------------------------------
            
 
+    elif opcao == 4:
+        while True:
+            print("--------Escolha o item que deseja remover--------")
+            print("\n")
+            for i, item in enumerate(pedidos, start=1):
+                print(f"{i} -> {item}")
+            numero = int(input("Digite o número do item que deseja remover: "))
+            removerP = pedidos.pop(numero - 1)
+            removerV = preco.pop(numero - 1)
+            print("------Item removido com sucesso!!!------")
+            continuar = input("Deseja remover mais algum item? (s/n): ")
+            if continuar == "s":
+                continue
+            else:
+                break
 
 
-            
+#---------------------------OPÇÃO FINALIZAR PEDIDO [5]---------------------------------------------------------
+
+
+    elif opcao == 5:
+        print("\n")
+        print("\n")
+        print("------------Valor Total do pedido------------")  
+        for i, item in enumerate(pedidos):
+                preco_item = preco[i]
+                print(f"{i + 1} -> {item} ---> R${preco_item}0")     
+        sum(preco)
+        print(f"O valor total do pedido é R${sum(preco)}0") 
+        print("\n")
+        print("_____FORMAS DE PAGAMENTO_____")
+        print("[1] -- Pix")
+        print("[2] -- Cartão(Débito)")
+        print("[3] -- Cartão(Crédito à vista)")
+        print("[4] -- Dinheiro")
+        pagamento = int(input("Escolha a opção [] de pagamento: "))
+        print("**********PAGAMENTO REALIZADO COM SUCESSO**********")
+    
+
+
+        print("APROVEITE O LANCHE")
+        novo_pedido = input("Deseja fazer outro pedido? (s/n): ")
+        if novo_pedido == "s":
+            print("\n")
+            print("\n")
+            continue
+        else:
+            print("\n")
+            print("\n")
+            break
+
+
+        
+        
             
 
             
