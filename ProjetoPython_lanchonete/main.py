@@ -192,7 +192,8 @@ while True:
 
 
     elif opcao == 5:
-        if pedidos != 0:
+        if len(pedidos) == 0:
+            print("\n")
             print("\n")
             print("\n")
             print("Você ainda não fez nenhum pedido!!!")
