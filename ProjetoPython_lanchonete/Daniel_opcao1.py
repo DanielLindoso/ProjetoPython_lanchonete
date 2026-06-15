@@ -11,6 +11,7 @@ precoSuco = 9.00
 print("-----LANCHONETE-----")
 print("----SEJA BEM VINDO(A)----")
 while True:
+    print("\n")
     print("________MENU________")
     print("[1]--Ver cardápio.")
     print("[2]--Escolher Item.")
@@ -32,24 +33,11 @@ while True:
         print("[2]-----Batata frita Grande       --> R$14,00")
         print("[3]-----Coxinha de Frango         --> R$8,00")
         print("[4]-----Refrigerante Lata(350ml)  --> R$6,00")   
-        print("[5]-----Suco Natural de Laranja   --> R$9,00") 
-        voltar = int(input("Digite 0 para voltar ao menu: "))
+        print("[5]-----Suco Natural de Laranja(2L)   --> R$9,00") 
+        voltar = (input("Digite qualquer tecla para voltar ao menu: "))
         print("\n")
         print("\n")
-        if voltar == 0:
-            print("________MENU________")
-            print("[1]--Ver cardápio.")
-            print("[2]--Escolher Item.")
-            print("[3]--Seus pedidos.")
-            print("[4]--Remover Item.")
-            print("[5]--Finalizar pedido.")
-            print("[0]--Sair.")
-            opcao = int(input("Escolha uma das opções acima: "))
-            print("\n")
-            print("\n")
-            if opcao == 0:
-                print("-----------Processo Finalizado-----------")
-                break
+        
 #-------------------OPÇÃO ESCOLHER ITEM [2]------------------------------------------------------------------
     elif opcao == 2:
         print("--------Escolha o item que deseja--------")
@@ -68,7 +56,12 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n): ")
+                while True:
+                    continuar = input("Deseja pedir algo mais? (s/n): ").lower()
+                    if continuar == "s" or continuar == "n":
+                        break
+                    print("Opção inválida! Digite 's' para sim ou 'n' para não.")
+                
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -83,7 +76,12 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n): ")
+                while True:
+                    continuar = input("Deseja pedir algo mais? (s/n): ").lower()
+                    if continuar == "s" or continuar == "n":
+                        break
+                    print("Opção inválida! Digite 's' para sim ou 'n' para não.")
+                
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -98,7 +96,12 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n): ")
+                while True:
+                    continuar = input("Deseja pedir algo mais? (s/n): ").lower()
+                    if continuar == "s" or continuar == "n":
+                        break
+                    print("Opção inválida! Digite 's' para sim ou 'n' para não.")
+                
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -113,7 +116,12 @@ while True:
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n): ")
+                while True:
+                    continuar = input("Deseja pedir algo mais? (s/n): ").lower()
+                    if continuar == "s" or continuar == "n":
+                        break
+                    print("Opção inválida! Digite 's' para sim ou 'n' para não.")
+                
                 if continuar == "s":
                     print("\n")
                     print("\n")
@@ -121,33 +129,25 @@ while True:
                 else:
                     break
             elif escolha == 5:
-                pedidos.append("Suco Natural de Laranja")
+                pedidos.append("Suco Natural de Laranja(2L)")
                 preco.append(9.00)
                 print("\n")
                 print("\n")
                 print("\n")
                 print("\n")
                 print("Pedido Registrado com sucesso!!!")
-                continuar = input("Deseja pedir algo mais? (s/n): ")
+                while True:
+                    continuar = input("Deseja pedir algo mais? (s/n): ").lower()
+                    if continuar == "s" or continuar == "n":
+                        break
+                    print("Opção inválida! Digite 's' para sim ou 'n' para não.")
+                
                 if continuar == "s":
                     print("\n")
                     print("\n")
                     continue
                 else:
                     break
-            print("________MENU________")
-            print("[1]--Ver cardápio.")
-            print("[2]--Escolher Item.")
-            print("[3]--Seus pedidos.")
-            print("[4]--Remover Item.")
-            print("[5]--Finalizar pedido.")
-            print("[0]--Sair.")
-            opcao = int(input("Escolha uma das opções acima: "))
-            print("\n")
-            print("\n")
-            if opcao == 0:
-                print("-----------Processo Finalizado-----------")
-                break
 
 
 #-------------------------OPÇÃO SEUS PEDIDOS [3]----------------------------------------------------------------------
@@ -158,36 +158,58 @@ while True:
             print("\n")
             print("\n")
             print("Você ainda não fez nenhum pedido!")
-            voltar = input("Aperte enter para voltar ao menu: ")
+            voltar = input("Aperte qualquer tecla para voltar ao menu: ")
          
         else:
             print("\n")
             print("\n")
+            print("______ SEUS PEDIDOS ______")
             for i, item in enumerate(pedidos, start=1):
-                print(f"{i} -> {item}")
-            voltar = input("Aperte enter para voltar ao menu: ")
+                preco_do_item = preco[i - 1]
+                print(f"{i} -> {item} ---> R${preco_do_item:.2f}")
+            voltar = input("Aperte qualquer tecla para voltar ao menu: ")
 
 
 #---------------------------OPÇÃO REMOVER ITEM [4]----------------------------------------------------------------
            
 
     elif opcao == 4:
-        while True:
-            print("--------Escolha o item que deseja remover--------")
-            print("\n")
-            for i, item in enumerate(pedidos, start=1):
-                print(f"{i} -> {item}")
-            numero = int(input("Digite o número do item que deseja remover: "))
-            removerP = pedidos.pop(numero - 1)
-            removerV = preco.pop(numero - 1)
-            print("------Item removido com sucesso!!!------")
-            continuar = input("Deseja remover mais algum item? (s/n): ")
-            if continuar == "s":
-                continue
-            else:
-                break
-
-
+        if len(pedidos) == 0:
+            print("\nVocê ainda não tem itens para remover!")
+            input("Aperte qualquer tecla para voltar ao menu: ")
+        else:
+            while True:
+                print("--------Escolha o item que deseja remover--------")
+                print("\n")
+                for i, item in enumerate(pedidos, start=1):
+                    print(f"{i} -> {item}")
+                numero = int(input("Digite o número do item que deseja remover: "))
+                if numero >= 1 and numero <= len(pedidos):
+                    removerP = pedidos.pop(numero - 1)
+                    removerV = preco.pop(numero - 1)
+                    print("------Item removido com sucesso!!!------")
+                else:
+                    print("Número inválido!")
+                    continue
+                if len(pedidos) == 0:
+                    print("Seu carrinho agora está vazio!")
+                    input("Aperte qualquer tecla para voltar ao menu: ")
+                    print("\n")
+                    print("\n")
+                    print("\n")
+                    print("\n")
+                    break
+                while True:
+                    continuar = input("Deseja remover mais algum item? (s/n): ").lower()
+                    if continuar == "s" or continuar == "n":
+                        break
+                    print("Opção inválida! Digite apenas 's' para sim ou 'n' para não.")
+                
+                if continuar == "s":
+                    continue
+                else:
+                    break
+                    
 #---------------------------OPÇÃO FINALIZAR PEDIDO [5]---------------------------------------------------------
 
 
@@ -212,9 +234,8 @@ while True:
             print("------------Valor Total do pedido------------")  
             for i, item in enumerate(pedidos):
                 preco_item = preco[i]
-                print(f"{i + 1} -> {item} ---> R${preco_item}0")     
-            sum(preco)
-            print(f"O valor total do pedido é R${sum(preco)}0") 
+                print(f"{i + 1} -> {item} ---> R${preco_item:.2f}")     
+            print(f"O valor total do pedido é R${sum(preco):.2f}") 
             print("\n")
             print("_____FORMAS DE PAGAMENTO_____")
             print("[1] -- Pix")
@@ -227,14 +248,20 @@ while True:
 
 
             print("APROVEITE O LANCHE")
-            novo_pedido = input("Deseja fazer outro pedido? (s/n): ")
+            pedidos.clear()
+            preco.clear()
+            while True:
+                novo_pedido = input("Deseja fazer outro pedido? (s/n): ").lower()
+                if novo_pedido == "s" or novo_pedido == "n":
+                    break
+                print("Opção inválida! Digite apenas 's' para sim ou 'n' para não.")
+                
             if novo_pedido == "s":
                 print("\n")
                 print("\n")
                 continue
             else:
-                print("\n")
-                print("\n")
+                print("\n\n-----------Processo Finalizado-----------")
                 break
 
 
