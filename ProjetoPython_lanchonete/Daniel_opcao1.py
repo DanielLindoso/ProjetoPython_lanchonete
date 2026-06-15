@@ -219,14 +219,17 @@ while True:
             print("\n")
             print("\n")
             print("Você ainda não fez nenhum pedido!!!")
-            novo_pedido = input("Deseja fazer um pedido? (s/n): ")
+            while True:
+                novo_pedido = input("Deseja fazer um pedido? (s/n): ").lower()
+                if novo_pedido == "s" or novo_pedido == "n":
+                    break
+                print("Opção inválida! Digite apenas 's' para sim ou 'n' para não.")
+                
             if novo_pedido == "s":
-                print("\n")
-                print("\n")
+                print("\n\n")
                 continue
             else:
-                print("\n")
-                print("\n")
+                print("\n\n-----------Processo Finalizado-----------")
                 break
         else:
             print("\n")
